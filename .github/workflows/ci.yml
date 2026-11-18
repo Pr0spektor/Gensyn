@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  artefacts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate JSON
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          bad = []
+          for p in pathlib.Path('.').rglob('*.json'):
+              try:
+                  json.loads(p.read_text())
+              except Exception as exc:
+                  bad.append(f"{p}: {exc}")
+          print("\n".join(bad) if bad else "all JSON valid")
+          sys.exit(1 if bad else 0)
+          PY
+      - name: Licence and attribution present
+        run: |
+          test -s LICENSE
+          test -s NOTICE
+          grep -q "Apache License" LICENSE
+          grep -q "Apache-2.0" NOTICE

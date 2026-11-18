@@ -1,0 +1,17 @@
+Gensyn — Qwen2.5-0.5B GRPO experiment
+Copyright 2025 Anton Sheshunov
+
+This product includes model weights and software developed by third parties:
+
+  * Qwen Team, Alibaba Cloud — Qwen2.5-0.5B-Instruct (Apache-2.0)
+  * Gensyn — Gensyn/Qwen2.5-0.5B-Instruct (Apache-2.0), a derivative of the model above
+  * Hugging Face — TRL, Transformers, Accelerate, Datasets (Apache-2.0)
+  * Microsoft — DeepSpeed (Apache-2.0)
+
+The published weights are a derivative of Gensyn/Qwen2.5-0.5B-Instruct.
+
+Changes made to the base model: continued GRPO training for 75 optimizer steps
+(2 generations per prompt, batch 2 x gradient accumulation 4, learning rate 1e-6,
+bf16) on an undocumented prompt set. No evaluation was performed.
+
+The full text of the Apache License, Version 2.0 is in LICENSE.

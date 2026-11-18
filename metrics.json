@@ -1,0 +1,65 @@
+{
+  "source": "https://huggingface.co/TonyStern/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-eager_pouncing_trout",
+  "revision": "12e2029fcbffeccdff38721ded74e4f2a9cada6c",
+  "last_modified": "2025-04-18T09:46:12Z",
+  "run": {
+    "max_steps": 75,
+    "logged_points": 19,
+    "epochs_completed": 5.377,
+    "train_samples": 53,
+    "per_device_train_batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_generations": 2,
+    "learning_rate": 1e-06,
+    "bf16": true,
+    "save_steps": 25,
+    "do_eval": false
+  },
+  "reported": {
+    "train_loss": 0.00026440337571936347,
+    "train_runtime_s": 1630.4696,
+    "train_samples": 53,
+    "train_samples_per_second": 0.368,
+    "train_steps_per_second": 0.046
+  },
+  "reconciled": {
+    "steps_check": "0.046 x 1630.4696 = 75.00 steps (consistent)",
+    "sample_presentations": 600,
+    "samples_per_second_using_53": 0.0325,
+    "samples_per_second_using_600": 0.368,
+    "note": "the published 0.368 divides 600 sample-presentations (75 steps x 8) by the runtime, while train_samples reports the 53-example dataset; the two fields use different denominators"
+  },
+  "reward": {
+    "n": 19,
+    "mean": 0.5751,
+    "first": 0.3797,
+    "last": 0.5112,
+    "slope_per_step": 0.00151,
+    "slope_se": 0.00179,
+    "t_statistic": 0.84,
+    "permutation_p_two_sided": 0.412,
+    "significant_at_5pct": false
+  },
+  "reward_components_mean": {
+    "question_recreation": 0.2775,
+    "xmlcount": 0.1964,
+    "consensus": 0.0516,
+    "final_correctness": 0.0369,
+    "concensus_correctness": 0.0099,
+    "strict_format": 0.0028,
+    "cumulative_reward_2": 0.0,
+    "soft_format": 0.0
+  },
+  "evaluation": {
+    "held_out_benchmark": null,
+    "eval_loss": null,
+    "note": "no evaluation was run; do_eval is false and no log entry contains eval_loss"
+  },
+  "checkpoint": {
+    "published": "global_step25",
+    "final_step": 75,
+    "model_states_tensor_payload_bytes": 0,
+    "model_states_entries": 294,
+    "note": "the published DeepSpeed model-states file contains metadata only; all data/* tensor entries are zero-length"
+  }
+}
